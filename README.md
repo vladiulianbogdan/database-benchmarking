@@ -1,59 +1,24 @@
-# Create a genezio app
+# Unveiling Database Performance: Selecting the Right Solution for Your Serverless Application
 
 [![deployed with: genezio](https://img.shields.io/badge/deployed_with-genezio-6742c1.svg?labelColor=62C353&style=flat)](https://github.com/genez-io/genezio)
 
-This is a full-stack, out-of-the-box template that can easily be deployed with [genezio](https://genez.io).
+This is the code that was used to do the experiments from the article "Unveiling Database Performance: Selecting the Right Solution for Your Serverless Application".
 
-## How do I test my app
+## How can I reproduce the results?
 
-1. Create an account visiting <https://app.genez.io>.
+First of all, you need the following accounts in order to deploy the databases:
 
-2. Open up a terminal and install the genezio CLI tool:
-```bash
-npm install -g genezio
-```
+* [A Firebase account](https://support.google.com/appsheet/answer/10104995?hl=en)
+* [An Atlas MongoDB account](https://genez.io/blog/how-to-add-a-mongodb-to-your-genezio-project/)
+* [An AWS Account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html)
 
-3. Login using the following command:
+Once you have, these you need to do the following steps:
 
-```bash
-genezio login
-```
+1. In Firebase Dashboard, create a Firestore database and get a `firestore.json` file. Place it in the `server/` folder.
+2. In the Atlas MongoDB, create a Cluster and a Database and populate the field `MONGO_DB_URI` in the `.env` file from the `server/` folder. Moreover, activate the Atlas Data API and populate the fields `MONGO_DB_DATA_API_URI` and `MONGO_DB_DATA_API_KEY`.
+3. After you generate an AWS account, generate a pair of `ACCESS_KEY_ID` and `SECRET_ACCESS_KEY` and login in the CLI with your AWS Account (check [this](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) for more information). In the end, you should have the key and secret in the `~/.aws/credentials` file. Also, populate the `MY_AWS_ACCESS_KEY_ID` and `MY_AWS_SECRET_ACCESS_KEY` variables from the `.env` file from the `server/` folder.
+4. Now you are ready to run `genezio deploy` from the `server/` folder which will deploy the application.
+5. Run `npm install` in the client/
+6. Run `node build/index.js" and wait for the results.
 
-4. Test your app by running:
-```
-genezio local
-```
-
-5. Head over to the [Test Interface](https://app.genez.io/test-interface) to test your app in a Postman-like environment.
-
-## How do I deploy my app
-
-1. Create an account visiting <https://app.genez.io>.
-
-2. Open up a terminal and install the `genezio` CLI tool:
-```bash
-npm install -g genezio
-```
-
-3. Login using the following command:
-
-```bash
-genezio login
-```
-
-4. Deploy your full-stack app with a single command.
-
-```
-genezio deploy
-```
-
-5. Head over to the [Dashboard](https://app.genez.io) to see the logs of your app.
-
-## Learn more
-
-Check out the following resources to get a deeper understanding on `genezio`:
-
-- Documentation: https://genez.io/docs
-- Tutorials: https://genez.io/blog
-- Examples: https://github.com/genez-io/genezio-examples
-- Real world use cases: https://docs.genez.io/genezio-documentation/hall-of-fame
+If you encounter any problem, submit an issue and I am happy to help.

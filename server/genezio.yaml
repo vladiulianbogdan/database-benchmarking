@@ -1,0 +1,22 @@
+name: database-benchmarking
+cloudProvider: selfHostedAws
+region: eu-central-1
+sdk:
+  language: ts
+  path: ../client/sdk
+frontend:
+  path: ../client/build
+  subdomain: crimson-lovely-toad
+classes:
+  - path: ./mongoDbConnect.ts
+    type: jsonrpc
+    methods: []
+  - path: ./mongoDbDataApi.ts
+    type: jsonrpc
+    methods: []
+  - path: ./firestore.ts
+    type: jsonrpc
+    methods: []
+  - path: ./dynamodb.ts
+    type: jsonrpc
+    methods: []

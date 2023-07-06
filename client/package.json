@@ -1,0 +1,22 @@
+{
+    "name": "template",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "tsc": "./node_modules/typescript/bin/tsc",
+        "postinstall": "npm run tsc"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "csv-writer": "^1.6.0",
+        "i": "^0.3.7",
+        "npm": "^9.7.2",
+        "typescript": "^5.1.6"
+    },
+    "devDependencies": {
+        "@types/node": "^20.3.3"
+    }
+}
